@@ -49,8 +49,8 @@ llm_config:
       - "up_proj"
       - "v_proj"
   distil_params:
-    - ["athene_pretrain_base", "../../distil_logits/logits/athene_pretrain_base_logits.pt", "../../distil_logits/logits/athene_pretrain_base_logits_tta.pt", 5.0, 0.45]
-    - ["qwen_pretrain_base", "../../distil_logits/logits/qwen_pretrain_base_logits.pt", "../../distil_logits/logits/qwen_pretrain_base_logits_tta.pt", 5.0, 0.45]
+    - ["athene_pretrain_base", "../../artifacts/distil_logits/logits/athene_pretrain_base_logits.pt", "../../artifacts/distil_logits/logits/athene_pretrain_base_logits_tta.pt", 5.0, 0.45]
+    - ["qwen_pretrain_base", "../../artifacts/distil_logits/logits/qwen_pretrain_base_logits.pt", "../../artifacts/distil_logits/logits/qwen_pretrain_base_logits_tta.pt", 5.0, 0.45]
 
     
 

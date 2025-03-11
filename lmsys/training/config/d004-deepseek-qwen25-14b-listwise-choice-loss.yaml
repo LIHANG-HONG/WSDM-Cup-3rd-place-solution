@@ -49,11 +49,11 @@ llm_config:
       - "up_proj"
       - "v_proj"
   distil_params:
-    - ["athene_pretrain_base", "../../distil_logits/logits/athene_pretrain_base_logits.pt", "../../distil_logits/logits/athene_pretrain_base_logits_tta.pt", 5.0, 0.22]
-    - ["qwen_pretrain_base", "../../distil_logits/logits/qwen_pretrain_base_logits.pt", "../../distil_logits/logits/qwen_pretrain_base_logits_tta.pt", 5.0, 0.22]
-    - ["athene_no_pretrain", "../../distil_logits/logits/athene_no_pretrain_logits.pt", "../../distil_logits/logits/athene_no_pretrain_logits_tta.pt", 5.0, 0.14]
-    - ["qwen_no_pretrain", "../../distil_logits/logits/qwen_no_pretrain_logits.pt", "../../distil_logits/logits/qwen_no_pretrain_logits_tta.pt", 5.0, 0.14]
-    - ["llama_no_pretrain", "../../distil_logits/logits/llama_no_pretrain_logits.pt", "../../distil_logits/logits/llama_no_pretrain_logits_tta.pt", 5.0, 0.18]
+    - ["athene_pretrain_base", "../../artifacts/distil_logits/logits/athene_pretrain_base_logits.pt", "../../artifacts/distil_logits/logits/athene_pretrain_base_logits_tta.pt", 5.0, 0.22]
+    - ["qwen_pretrain_base", "../../artifacts/distil_logits/logits/qwen_pretrain_base_logits.pt", "../../artifacts/distil_logits/logits/qwen_pretrain_base_logits_tta.pt", 5.0, 0.22]
+    - ["athene_no_pretrain", "../../artifacts/distil_logits/logits/athene_no_pretrain_logits.pt", "../../artifacts/distil_logits/logits/athene_no_pretrain_logits_tta.pt", 5.0, 0.14]
+    - ["qwen_no_pretrain", "../../artifacts/distil_logits/logits/qwen_no_pretrain_logits.pt", "../../artifacts/distil_logits/logits/qwen_no_pretrain_logits_tta.pt", 5.0, 0.14]
+    - ["llama_no_pretrain", "../../artifacts/distil_logits/logits/llama_no_pretrain_logits.pt", "../../artifacts/distil_logits/logits/llama_no_pretrain_logits_tta.pt", 5.0, 0.18]
 
 # lr scheduler
 lr_scheduler_config: 

@@ -49,7 +49,7 @@ llm_config:
       - "up_proj"
       - "v_proj"
   distil_params:
-    - ["athene", "../../distil_logits/athene_logits.pt", 10.0, 0.7]
+    - ["athene", "../../artifacts/distil_logits/athene_logits.pt", 10.0, 0.7]
     
 
 # lr scheduler
