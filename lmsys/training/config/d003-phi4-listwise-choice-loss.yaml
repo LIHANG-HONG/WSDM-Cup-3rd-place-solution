@@ -49,7 +49,9 @@ llm_config:
       - "up_proj"
       - "v_proj"
   distil_params:
-    - ["athene", "../../distil_logits/athene_logits.pt", 10.0, 0.7]
+    - ["athene_pretrain_base", "../../distil_logits/logits/athene_pretrain_base_logits.pt", "../../distil_logits/logits/athene_pretrain_base_logits_tta.pt", 5.0, 0.45]
+    - ["qwen_pretrain_base", "../../distil_logits/logits/qwen_pretrain_base_logits.pt", "../../distil_logits/logits/qwen_pretrain_base_logits_tta.pt", 5.0, 0.45]
+
     
 
 # lr scheduler
