@@ -25,17 +25,17 @@ python3 merge_and_unload.py --config ./config/p004-qwen-14b-listwise-choice-loss
 python3 run_train.py --config ./config/m001-qwen25-3b-listwise.yaml --filepath ../../data/train_lmsys_all.parquet --fold 0 --output-dir ../../artifacts/train_ckpt
 
 python3 run_train_distil.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml --filepath ../../data/train_lmsys_all.parquet --fold 0 --output-dir ../../artifacts/train_ckpt
-python3 merge_and_unload.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml ../../artifacts/train_ckpt/d002-qwen25-14b-listwise-choice-loss-binary-distil-t5-lr10-pretrain-model/checkpoint-13925 --output-dir ../../artifacts/train_ckpt/qwen_14b_distil_t5_lr10_pretrain_model
+python3 merge_and_unload.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml ../../artifacts/train_ckpt/d002-qwen25-14b-listwise-choice-loss-binary-distil-t5-lr10-pretrain-model_fold_0/checkpoint-13925 --output-dir ../../artifacts/train_ckpt/qwen_14b_distil_t5_lr10_pretrain_model
 ```
 
 # run evaluation
 ```
-python3 run_oof.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml --filepath ../../data/train_lmsys_all.parquet --fold 0 --adapter ../../artifacts/train_ckpt/d002-qwen25-14b-listwise-choice-loss-binary-distil-t5-lr10-pretrain-model/checkpoint-13925 --output-dir .
+python3 run_oof.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml --filepath ../../data/train_lmsys_all.parquet --fold 0 --adapter ../../artifacts/train_ckpt/d002-qwen25-14b-listwise-choice-loss-binary-distil-t5-lr10-pretrain-model_fold_0/checkpoint-13925 --output-dir .
 
 python3 run_oof.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml --filepath ../../data/train_lmsys_all.parquet --fold 0 --model-name-or-path ../../artifacts/train_ckpt/qwen_14b_distil_t5_lr10_pretrain_model --output-dir . --vllm
 ```
 
 # run quantize
 ```
-python3 quantize.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml --filepath ../../data/train_lmsys_all.parquet --fold 0 --adapter ../../artifacts/train_ckpt/d002-qwen25-14b-listwise-choice-loss-binary-distil-t5-lr10-pretrain-model/checkpoint-13925 --output-dir ../../artifacts/train_ckpt/qwen_14b_distil_t5_lr10_pretrain_model_quantize
+python3 quantize.py --config ./config/d002-qwen25-14b-listwise-choice-loss.yaml --filepath ../../data/train_lmsys_all.parquet --fold 0 --adapter ../../artifacts/train_ckpt/d002-qwen25-14b-listwise-choice-loss-binary-distil-t5-lr10-pretrain-model_fold_0/checkpoint-13925 --output-dir ../../artifacts/train_ckpt/qwen_14b_distil_t5_lr10_pretrain_model_quantize
 ```
