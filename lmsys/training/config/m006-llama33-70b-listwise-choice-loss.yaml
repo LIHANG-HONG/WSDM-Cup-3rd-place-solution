@@ -1,0 +1,65 @@
+# general settings
+exp_type: "preference-prediction"
+exp_name: "m006-llama33-70b-listwise-choice-loss"
+seed: 7432116
+
+# phase: train
+n_folds: 5
+max_epochs: &max_epochs 1
+
+# cpu/gpu
+num_workers: 32
+
+# dataset
+train_batch_size: 1
+gradient_accumulation_steps: 8
+eval_batch_size: 4
+
+dataset_config:
+  prompt_name: "llama"
+  must_cols:
+    - response_a
+    - response_b
+  synthetic_cols:
+    - response_c
+    - response_d
+    - response_e
+    - response_f
+    - response_g
+    - response_h
+    - response_i
+      
+llm_config:
+  backbone: "meta-llama/Llama-3.3-70B-Instruct"
+  use_lora: true
+  bitsandbytes: true
+  resume_from_checkpoint: null
+  lora_params:
+    lora_alpha: 32
+    lora_dropout: 0.05
+    r: 64
+    bias: "none"
+    task_type: "CASUAL_LM"
+    target_modules:
+      - "o_proj"
+      - "k_proj"
+      - "q_proj"
+      - "down_proj"
+      - "gate_proj"
+      - "up_proj"
+      - "v_proj"
+
+# lr scheduler
+lr_scheduler_config: 
+  name: linear
+  params: 
+    warmup_steps: 5
+
+# optimizer
+optimizer_config: 
+  name: paged_adamw_8bit
+  # adjust lr according to num gpu
+  # base lr is 5.0e-5
+  params: 
+    lr: 5.0e-5
+    weight_decay: 0.01

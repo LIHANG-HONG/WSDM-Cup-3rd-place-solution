@@ -1,0 +1,10 @@
+transformers==4.46.3
+vllm==0.6.3.post1
+peft==0.13.2
+trl==0.13.0
+tf-keras==2.18.0
+bitsandbytes==0.44.1
+fasttext==0.9.3
+langcodes==3.5.0
+auto-round==0.4.3
+deepspeed==0.15.4

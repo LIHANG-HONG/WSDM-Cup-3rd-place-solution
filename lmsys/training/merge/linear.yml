@@ -1,0 +1,21 @@
+models:
+  - model: 14b_adjust4_nocot
+    parameters:
+      weight: 0.25
+  - model: 14b_adjust_nocot
+    parameters:
+      weight: 0.15
+  - model: 14b_adjust4_nocot_lmsys12
+    parameters:
+      weight: 0.20
+  - model: 14b_1m_adjust4_nocot
+    parameters:
+      weight: 0.18
+  - model: 14b_1m_adjust4_nocot_lmsys12
+    parameters:
+      weight: 0.12
+  - model: 14b_1m_adjust_nocot_lmsys12
+    parameters:
+      weight: 0.10
+merge_method: linear
+dtype: bfloat16

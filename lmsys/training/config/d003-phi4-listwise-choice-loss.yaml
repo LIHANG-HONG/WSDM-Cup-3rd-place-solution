@@ -1,0 +1,66 @@
+# general settings
+exp_type: "preference-prediction"
+exp_name: "d003-phi4-listwise-choice-loss"
+seed: 42
+
+# phase: train
+n_folds: 5
+max_epochs: &max_epochs 1
+
+# cpu/gpu
+num_workers: 16
+
+# dataset
+train_batch_size: 2
+gradient_accumulation_steps: 4
+eval_batch_size: 4
+
+dataset_config:
+  prompt_name: "phi4"
+  must_cols:
+    - response_a
+    - response_b
+  synthetic_cols:
+    - response_c
+    - response_d
+    - response_e
+    - response_f
+    - response_g
+    - response_h
+    - response_i
+      
+llm_config:
+  backbone: "microsoft/phi-4"
+  use_lora: true
+  bitsandbytes: true
+  resume_from_checkpoint: null
+  lora_params:
+    lora_alpha: 32
+    lora_dropout: 0.05
+    r: 64
+    bias: "none"
+    task_type: "CASUAL_LM"
+    target_modules:
+      - "o_proj"
+      - "k_proj"
+      - "q_proj"
+      - "down_proj"
+      - "gate_proj"
+      - "up_proj"
+      - "v_proj"
+  distil_params:
+    - ["athene", "../../distil_logits/athene_logits.pt", 10.0, 0.7]
+    
+
+# lr scheduler
+lr_scheduler_config: 
+  name: linear
+  params: 
+    warmup_steps: 5
+
+# optimizer
+optimizer_config: 
+  name: paged_adamw_8bit
+  params: 
+    lr: 1.0e-4
+    weight_decay: 0.01
