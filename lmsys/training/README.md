@@ -14,10 +14,10 @@ python3 download_model.py --model-path Qwen/Qwen2.5-72B-Instruct
 export DS_ACCELERATOR=cuda
 
 nohup accelerate launch --config_file=deepspeed_zero1.yaml run_pretrain.py --config ./config/p001-athene-listwise-choice-loss.yaml --output-dir ../../artifacts/pretrain_ckpt > train_log.txt 2>&1
-python3 merge_and_unload.py --config ./config/p001-athene-listwise-choice-loss.yaml ../../artifacts/pretrain_ckpt/p001-athene-listwise-choice-loss/checkpoint-17915 --output-dir ../../artifacts/pretrain_ckpt/qwen_14b_pretrained_model
+python3 merge_and_unload.py --config ./config/p001-athene-listwise-choice-loss.yaml ../../artifacts/pretrain_ckpt/p001-athene-listwise-choice-loss/checkpoint-8957 --output-dir ../../artifacts/pretrain_ckpt/athene_pretrained_model
 
 nohup accelerate launch --config_file=deepspeed_zero1.yaml run_pretrain.py --config ./config/p004-qwen-14b-listwise-choice-loss.yaml --output-dir ../../artifacts/pretrain_ckpt > train_log.txt 2>&1
-python3 merge_and_unload.py --config ./config/p004-qwen-14b-listwise-choice-loss.yaml ../../artifacts/pretrain_ckpt/p004-qwen-14b-listwise-choice-loss/checkpoint-8957 --output-dir ../../artifacts/pretrain_ckpt/athene_pretrained_model
+python3 merge_and_unload.py --config ./config/p004-qwen-14b-listwise-choice-loss.yaml ../../artifacts/pretrain_ckpt/p004-qwen-14b-listwise-choice-loss/checkpoint-17915 --output-dir ../../artifacts/pretrain_ckpt/qwen_14b_pretrained_model
 ```
 
 # run train
